@@ -1,116 +1,9 @@
 #include<iostream>
-#include<vector>
-
-using namespace std;
-
-template <typename T>
-class Vector {
-private:
-	T* data = NULL;
-	int size = 0;
-	int pos = 0;
-
-public:
-	Vector(int _size)
-	{
-		if (_size > 1)
-		{
-			size = _size;
-			data = new T[size];
-		}
-		else
-		{
-			size = _size;
-			data = new T[1];
-		}
-	}
-
-	~Vector()
-	{
-		delete[] data;
-		data = NULL;
-		size = 0;
-		pos = 0;
-	}
-
-	int getSize()
-	{
-		return size;
-	}
-
-	void pushBack(T _element)
-	{
-		if (pos < size)
-		{
-			data[pos] = _element;
-			pos++;
-		}
-	}
-
-	T popBack()
-	{
-		if (pos > 0)
-		{
-			pos--;
-			T element = data[pos];
-			data[pos] = 0;
-			return element;
-		}
-	}
-
-	T checkElement(int _pos)
-	{
-		if (pos <= size) return data[_pos];
-	}
-
-	bool operator<=(const Vector& _V)
-	{
-		T tmpThis = 0, tmp_V = 0;
-
-		for (int i = 0; i < this->size; i++)
-			tmpThis += this->data[i];
-
-		for (int i = 0; i < _V.size; i++)
-			tmp_V += _V.data[i];
-
-		if (tmpThis <= tmp_V) return true;
-		else return false;
-	}
-
-	bool operator>=(const Vector& _V)
-	{
-		T tmpThis = 0, tmp_V = 0;
-
-		for (int i = 0; i < this->size; i++)
-			tmpThis += this->data[i];
-
-		for (int i = 0; i < _V.size; i++)
-			tmp_V += _V.data[i];
-
-		if (tmpThis >= tmp_V) return true;
-		else return false;
-	}
-
-	bool operator==(const T& _value)
-	{
-		T tmpThis = 0;
-
-		for (int i = 0; i < this->size; i++)
-			tmpThis += this->data[i];
-
-		if (tmpThis == _value) return true;
-		else return false;
-	}
-
-	void printElemenets()
-	{
-		for (int i = 0; i < this->size; i++) cout << this->data[i] << ' ';
-	}
-};
+#include"Vector.h"
 
 int main()
 {
-	Vector<double> V1(3);
+	Vector<double> V1(4);
 	Vector<double> V2(3);
 
 	//printf("Size - %i\n", V1.getSize());
@@ -136,6 +29,7 @@ int main()
 	//element = V1.popBack();
 	//printf("Element = %.1lf\n", element);
 
+	V1.pushBack(1);
 	V1.pushBack(1);
 	V1.pushBack(1);
 	V1.pushBack(1);
