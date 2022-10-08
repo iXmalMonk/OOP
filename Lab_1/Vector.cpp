@@ -6,11 +6,13 @@ Vector::Vector(int _size)
 	{
 		size = _size;
 		data = new double[size];
+		cout << "create\n";
 	}
 	else
 	{
 		size = _size;
 		data = new double[1];
+		cout << "constructor\n";
 	}
 }
 
@@ -19,6 +21,7 @@ Vector::Vector(Vector& _v)
 	size = _v.size;
 	data = new double[size];
 	for (int i = 0; i < size; i++) data[i] = _v.data[i];
+	cout << "constructor copy\n";
 }
 
 Vector::~Vector()
@@ -26,6 +29,7 @@ Vector::~Vector()
 	delete data;
 	data = nullptr;
 	size = 0;
+	cout << "deconstructor\n";
 }
 
 istream& operator>>(istream& _in, Vector& _v)
@@ -70,4 +74,100 @@ bool Vector::operator==(const double& _value)
 {
 	if (this->size == _value) return true;
 	else return false;
+}
+
+Vector Vector::operator+(const Vector& _v)
+{
+	if (size == _v.size)
+	{
+		Vector temp(size);
+		for (int i = 0; i < size; i++) temp.data[i] = data[i] + _v.data[i];
+		return temp;
+	}
+}
+
+Vector Vector::operator+(double _value)
+{
+	Vector temp(size);
+	for (int i = 0; i < size; i++) temp.data[i] = data[i] + _value;
+	return temp;
+}
+
+Vector operator+(double _value, const Vector& _v)
+{
+	Vector temp(_v.size);
+	for (int i = 0; i < _v.size; i++) temp.data[i] = _value + _v.data[i];
+	return temp;
+}
+
+Vector Vector::operator-(const Vector& _v)
+{
+	if (size == _v.size)
+	{
+		Vector temp(size);
+		for (int i = 0; i < size; i++) temp.data[i] = data[i] - _v.data[i];
+		return temp;
+	}
+}
+
+Vector Vector::operator-(double _value)
+{
+	Vector temp(size);
+	for (int i = 0; i < size; i++) temp.data[i] = data[i] - _value;
+	return temp;
+}
+
+Vector operator-(double _value, const Vector& _v)
+{
+	Vector temp(_v.size);
+	for (int i = 0; i < _v.size; i++) temp.data[i] = _value - _v.data[i];
+	return temp;
+}
+
+Vector Vector::operator*(const Vector& _v)
+{
+	if (size == _v.size)
+	{
+		Vector temp(size);
+		for (int i = 0; i < size; i++) temp.data[i] = data[i] * _v.data[i];
+		return temp;
+	}
+}
+
+Vector Vector::operator*(double _value)
+{
+	Vector temp(size);
+	for (int i = 0; i < size; i++) temp.data[i] = data[i] * _value;
+	return temp;
+}
+
+Vector operator*(double _value, const Vector& _v)
+{
+	Vector temp(_v.size);
+	for (int i = 0; i < _v.size; i++) temp.data[i] = _value * _v.data[i];
+	return temp;
+}
+
+Vector Vector::operator/(const Vector& _v)
+{
+	if (size == _v.size)
+	{
+		Vector temp(size);
+		for (int i = 0; i < size; i++) temp.data[i] = data[i] / _v.data[i];
+		return temp;
+	}
+}
+
+Vector Vector::operator/(double _value)
+{
+	Vector temp(size);
+	for (int i = 0; i < size; i++) temp.data[i] = data[i] / _value;
+	return temp;
+}
+
+Vector operator/(double _value, const Vector& _v)
+{
+	Vector temp(_v.size);
+	for (int i = 0; i < _v.size; i++) temp.data[i] = _value / _v.data[i];
+	return temp;
 }

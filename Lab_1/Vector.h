@@ -22,7 +22,18 @@ public:
 	bool operator<=(const Vector& _v);
 	bool operator>=(const Vector& _v);
 	bool operator==(const double& _value);
+	Vector operator+(const Vector& _v);
+	Vector operator+(double _value);
+	friend Vector operator+(double _value, const Vector& _v);
+	Vector operator-(const Vector& _v);
+	Vector operator-(double _value);
+	friend Vector operator-(double _value, const Vector& _v);
+	Vector operator*(const Vector& _v);
+	Vector operator*(double _value);
+	friend Vector operator*(double _value, const Vector& _v);
+	Vector operator/(const Vector& _v);
+	Vector operator/(double _value);
+	friend Vector operator/(double _value, const Vector& _v);
 };
 
 #endif
-
