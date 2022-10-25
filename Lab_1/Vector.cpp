@@ -171,3 +171,15 @@ Vector operator/(double _value, const Vector& _v)
 	for (int i = 0; i < _v.size; i++) temp.data[i] = _value / _v.data[i];
 	return temp;
 }
+
+int Vector::getSize()
+{
+	return size;
+}
+
+double Vector::getLength()
+{
+	double temp = 0;
+	for (int i = 0; i < size; i++) temp += (data[i] * data[i]);
+	return sqrt(temp);
+}

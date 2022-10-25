@@ -34,6 +34,8 @@ public:
 	Vector operator/(const Vector& _v);
 	Vector operator/(double _value);
 	friend Vector operator/(double _value, const Vector& _v);
+	int getSize();
+	double getLength();
 };
 
 #endif
