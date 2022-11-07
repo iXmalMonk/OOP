@@ -19,6 +19,11 @@ public:
 	void setY(int _y);
 	void setColor(int _color);
 
+	int getSize();
+	int getX();
+	int getY();
+	int getColor();
+
 	virtual void show() = 0;
 };
 
@@ -31,6 +36,8 @@ public:
 	Circle();
 	Circle(int _size, int _x, int _y, int _color, int _r);
 	void setR(int _r);
+
+	int getR();
 
 	void show();
 };
@@ -46,6 +53,9 @@ public:
 	Rectangle(int _size, int _x, int _y, int _color, int _w, int _h);
 	void setW(int _w);
 	void setH(int _h);
+
+	int getW();
+	int getH();
 
 	void show();
 };
@@ -63,6 +73,10 @@ public:
 	void setFirstSide(int _first_side);
 	void setSecondSide(int _second_side);
 	void setThirdSide(int _third_side);
+
+	int getFirstSide();
+	int getSecondSide();
+	int getThirdSide();
 
 	void show();
 };

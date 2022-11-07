@@ -46,6 +46,26 @@ void Figure::setColor(int _color)
 	color = _color;
 }
 
+int Figure::getSize()
+{
+	return size;
+}
+
+int Figure::getX()
+{
+	return x;
+}
+
+int Figure::getY()
+{
+	return y;
+}
+
+int Figure::getColor()
+{
+	return color;
+}
+
 #pragma endregion
 
 #pragma region Circle
@@ -68,6 +88,11 @@ Circle::Circle(int _size, int _x, int _y, int _color, int _r)
 void Circle::setR(int _r)
 {
 	r = _r;
+}
+
+int Circle:: getR()
+{
+	return r;
 }
 
 void Circle::show()
@@ -104,6 +129,16 @@ void Rectangle::setW(int _w)
 void Rectangle::setH(int _h)
 {
 	h = _h;
+}
+
+int Rectangle::getW()
+{
+	return w;
+}
+
+int Rectangle::getH()
+{
+	return h;
 }
 
 void Rectangle::show()
@@ -147,6 +182,21 @@ void Triangle::setSecondSide(int _second_side)
 void Triangle::setThirdSide(int _third_side)
 {
 	third_side = _third_side;
+}
+
+int Triangle::getFirstSide()
+{
+	return first_side;
+}
+
+int Triangle::getSecondSide()
+{
+	return second_side;
+}
+
+int Triangle::getThirdSide()
+{
+	return third_side;
 }
 
 void Triangle::show()
